@@ -1,0 +1,30 @@
+//6.Write a program that reads from the console a string of maximum 20 characters. 
+//If the length of the string is less than 20, the rest of the characters should be filled with '*'. Print the result string into the console.
+
+using System;
+using System.Text;
+
+class ReadString
+{
+    static void Main(string[] args)
+    {
+        string text = Console.ReadLine();
+        StringBuilder sb = new StringBuilder(20);
+        sb.Append(text);
+
+        if (sb.Length < 20 && sb.Length > 0)
+        {
+            sb.Append('*', 20 - sb.Length);
+            Console.WriteLine(sb);
+        }
+        else if (sb.Length == 0)
+        {
+            Console.WriteLine("The string is empty!");
+        }
+        else
+        {
+            Console.WriteLine("The maximum length of the text is 20 characters!");
+        }
+    }
+}
+
