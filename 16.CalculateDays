@@ -1,0 +1,23 @@
+//16.Write a program that reads two dates in the format: day.month.year and calculates the number of days between them. 
+
+using System;
+
+    class CalculateDays
+    {
+        static void Main()
+        {
+            Console.Write("Enter the first date : ");
+            string start = Console.ReadLine();
+
+            Console.Write("Enter the second date : ");
+            string end = Console.ReadLine();
+
+            DateTime startDate = DateTime.Parse(start);
+            DateTime endDate = DateTime.Parse(end);
+
+            //TimeSpan difference = startDate.Subtract(endDate);
+           // Console.WriteLine("Difference : {0}",difference.Days);
+            Console.WriteLine((startDate-endDate).TotalDays);
+        }
+    }
+
