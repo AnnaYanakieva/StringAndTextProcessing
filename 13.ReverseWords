@@ -1,0 +1,31 @@
+//Write a program that reverses the words in given sentence.
+//	Example: "C# is not C++, not PHP and not Delphi!"  "Delphi not and PHP, not C++ not is C#!".
+
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
+class ReverseWords
+{
+    static void Main()
+    {
+        string sentence = Console.ReadLine();
+
+        string regex = @"\s+|,\s*|\.\s*|!\s*|$";
+
+        var words = new Stack<string>();
+
+        foreach (var word in Regex.Split(sentence, regex))
+        {
+            if (!String.IsNullOrEmpty(word))
+            {
+                words.Push(word);
+            }
+        }
+        foreach (var separator in Regex.Matches(sentence, regex))
+        {
+            Console.Write(words.Pop() + separator);
+        }
+        Console.WriteLine();
+    }
+}
